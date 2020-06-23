@@ -1,0 +1,89 @@
+import React from 'react';
+import { StyleSheet, Text, View, Image,TextInput,Button, Alert } from 'react-native';
+import Constants from "expo-constants";
+
+export default function App() {
+  const [value, onChangeText] = React.useState('your alert');
+  const profiles = [
+    {
+      title: "fullname",
+      data: ["Kanit Wichitpanya"]
+    },
+    {
+      title: "email",
+      data: ["nodemove@gmail.com"]
+    },
+    {
+      title: "ig",
+      data: ["nodemov07"]
+    },
+    {
+      title: "fb",
+      data: ["Kanit Wichitpanya"]
+    }
+  ];
+
+  
+  return (
+    <View style={styles.container}>
+    <Text>ประวัติส่วนตัว</Text>
+      <Image
+        style={styles.tinyLogo}
+        source={{
+          uri: 'https://avatars2.githubusercontent.com/u/32562129?s=460&u=0d83d20e29118f0f724bfaa827e91dafd13b8bcd&v=4',
+        }}
+      />
+
+      
+      <SectionList
+        sections={profiles}
+        keyExtractor={(item, index) => item + index}
+        renderItem={({ item }) => <Item title={item} />}
+        renderSectionHeader={({ section: { title } }) => (
+          <Text style={styles.header}>{title}</Text>
+        )}
+      />
+    </SafeAreaView>
+
+      <Text style={styles.innerTextRed}>{value}</Text>
+      
+      <TextInput
+      style={{ height: 40,width:320, borderColor: 'gray', borderWidth: 1 }}
+      onChangeText={text => onChangeText(text)}
+      value={value}
+    />
+    <Button
+    title="Press me"
+    onPress={() => Alert.alert(`${value}`)}
+  />
+    
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: Constants.statusBarHeight,
+    marginHorizontal: 16
+  },
+  innerTextRed: {
+    color: 'red',
+    fontSize:100
+  },
+  tinyLogo: {
+    width: 50,
+    height: 50,
+  },
+  logo: {
+    width: 66,
+    height: 58,
+  },
+});
+
+
+      {
+        profiles.map((item, index) => {
+          console.log(item.data[0]);
+        })
+      }

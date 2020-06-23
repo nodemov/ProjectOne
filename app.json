@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "AwesomeProject",
-    "slug": "AwesomeProject",
+    "name": "ProjectOne",
+    "slug": "ProjectOne",
     "platforms": [
       "ios",
       "android",
